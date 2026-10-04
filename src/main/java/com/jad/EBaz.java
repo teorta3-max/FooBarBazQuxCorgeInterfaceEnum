@@ -12,7 +12,7 @@ public enum EBaz implements IBaz{
     }
 
     private EBaz(String name){
-
+        this.name = name;
     }
 
     @Override

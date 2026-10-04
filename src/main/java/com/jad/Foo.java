@@ -1,10 +1,16 @@
 package com.jad;
 
-public class Foo implements IFoo{
+public class Foo implements IFoo {
+
     private IBaz baz;
     private IBar[] bars;
     private IQux qux;
     private ICorge corge;
+
+    public Foo(IBaz baz) {
+        this.baz = baz;
+        this.bars = new IBar[0];
+    }
 
     public IBaz getBaz() {
         return this.baz;
@@ -18,7 +24,7 @@ public class Foo implements IFoo{
         return this.qux;
     }
 
-    public ICorge getCorge(){
+    public ICorge getCorge() {
         return this.corge;
     }
 
@@ -26,15 +32,15 @@ public class Foo implements IFoo{
         this.corge = corge;
     }
 
-    public Foo(IBaz baz){
+    public void addBar(IBar bar) {
+        IBar[] newBars = new IBar[bars.length + 1];
 
+        for (int i = 0; i < bars.length; i++) {
+            newBars[i] = bars[i];
+        }
+
+        newBars[bars.length] = bar;
+
+        bars = newBars;
     }
-
-    public void addBar(IBar bar){
-
-    }
-
-
-
-
 }
